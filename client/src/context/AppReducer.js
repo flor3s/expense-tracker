@@ -14,7 +14,7 @@ export default (state, action) => {
     case 'ADD_TRANSACTION':
       return {
         ...state,
-        transactions: [action.payload, ...state.transactions]
+        transactions: [...state.transactions, action.payload]
       }
     case 'TRANSACTION_ERROR':
       return {
