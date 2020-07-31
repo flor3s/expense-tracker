@@ -19,6 +19,12 @@ export const AddTransaction = () => {
     }
 
     addTransaction(newTransaction);
+    resetValues()
+  }
+
+  const resetValues = () => {
+    setText('')
+    setAmount('')
   }
 
 

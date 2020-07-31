@@ -1,4 +1,4 @@
-// UseContext allows you to hook into GlobalContext. NECESSARY.
+// UseContext to hook into GlobalContext
 import React, { useContext, useEffect } from 'react';
 import { Transaction } from './Transaction';
 
@@ -13,13 +13,17 @@ export const TransactionList = () => {
     getTransactions();
   }, [])
 
-  return (
-    <>
-      <h3 className="history">History</h3>
+  if (transactions === undefined || transactions.length === 0) {
+    return <></>
+  } else {
+    return (
+      <>
+        <h3 className="history">History</h3>
 
-      <ul className="list">
-        {transactions.map(transaction => ( <Transaction key={transaction.id} transaction={transaction}/> ))}
-      </ul>
-    </>
-  )
+        <ul className="list">
+          {transactions.map(transaction => ( <Transaction key={transaction.id} transaction={transaction}/> ))}
+        </ul>
+      </>
+    )
+  }
 }
